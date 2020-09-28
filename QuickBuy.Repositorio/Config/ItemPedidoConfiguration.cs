@@ -9,9 +9,21 @@ namespace QuickBuy.Repositorio.Config
     /// </summary>
     public class ItemPedidoConfiguration : IEntityTypeConfiguration<ItemPedido>
     {
+        /// <summary>
+        /// Método responsável por atribuir as configuração das propriedade da entidade ItemPedido.
+        /// </summary>
+        /// <param name="builder">Parâmetro responsável por definir configurações das propriedades do ItemPedido.</param>
         public void Configure(EntityTypeBuilder<ItemPedido> builder)
         {
-            throw new System.NotImplementedException();
+            builder.HasKey(i => i.Id);
+
+            builder
+                .Property(i => i.ProdutoId)
+                .IsRequired();
+
+            builder
+                .Property(i => i.Quantidade)
+                .IsRequired();
         }
     }
 }
