@@ -6,6 +6,7 @@
  */
 
 import { Component } from "@angular/core";
+import { Usuario } from "../../modelo/usuario";
 
 /**
  * Classe responsável por definir as propriedades do Login.
@@ -17,10 +18,13 @@ import { Component } from "@angular/core";
 })
 export class LoginComponent {
 
-  public email = "";
-  public senha = "";
+  public usuario;
+
+  constructor() {
+    this.usuario = new Usuario();
+  }
 
   entrar(): void {
-    alert(this.email + ' - ' + this.senha);
+    alert(this.usuario.email + ' - ' + this.usuario.senha);
   }
 }
