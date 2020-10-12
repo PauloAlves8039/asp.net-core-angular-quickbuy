@@ -7,6 +7,7 @@
 
 import { Component } from "@angular/core";
 import { Usuario } from "../../modelo/usuario";
+import { Router } from "@angular/router";
 
 /**
  * Classe responsável por definir as propriedades do Login.
@@ -20,13 +21,14 @@ export class LoginComponent {
 
   public usuario;
 
-  constructor() {
+  constructor(private router: Router) {
     this.usuario = new Usuario();
   }
 
   entrar(): void {
     if (this.usuario.email == "paulo@teste.com" && this.usuario.senha == "abc123") {
-      
+      localStorage.setItem("usuário autenticado", "1");
+      this.router.navigate(['/']);
     }
   }
 }
